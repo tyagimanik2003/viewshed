@@ -17,3 +17,4 @@ First development version.
 - ViewshedBench (`bench/`): benchmark of GDAL, GRASS r.viewshed, WhiteboxTools and
   xarray-spatial against the exact reference.
 - Test suite against analytic geometry; CI on Linux.
+- Released under the MIT licence.

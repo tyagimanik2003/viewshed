@@ -120,4 +120,5 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). Troubleshooting notes are in
 
 ## Licence
 
-Not yet chosen. Until a licence is added, all rights are reserved.
+MIT. See [LICENSE](LICENSE). The licence covers the code only; DEM data keeps its own licence
+(see above).

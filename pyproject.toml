@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling>=1.25"]
+requires = ["hatchling>=1.27"]
 build-backend = "hatchling.build"
 
 [project]
@@ -8,6 +8,8 @@ version = "0.1.0.dev0"
 description = "Correct, reproducible viewsheds from latitude/longitude, with an exact reference and a benchmark of viewshed engines."
 readme = "README.md"
 requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
 authors = [{ name = "Manik Tyagi" }]
 keywords = ["viewshed", "visibility", "line of sight", "GIS", "DEM", "terrain", "GDAL"]
 classifiers = [
