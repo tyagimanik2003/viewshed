@@ -1,0 +1,30 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash -el {0}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-name: viewshed
+          create-args: >-
+            python=3.12 gdal>=3.12 numpy pyproj pytest
+          condarc: |
+            channels: [conda-forge]
+          cache-downloads: true
+      - name: Install package
+        run: pip install --no-deps -e .
+      - name: Versions
+        run: python -c "from osgeo import gdal; import numpy; print('GDAL', gdal.__version__, 'numpy', numpy.__version__)"
+      - name: Run tests
+        run: python -m pytest -q

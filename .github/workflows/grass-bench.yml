@@ -1,0 +1,58 @@
+name: grass-benchmark
+
+# Runs GRASS r.viewshed (its conda-forge Windows build fails; see docs/troubleshooting.md)
+# plus GDAL and the exact R3 reference on Linux, for all benchmark sites. Started manually.
+on:
+  workflow_dispatch:
+    inputs:
+      sites:
+        description: "Only the first N sites (empty = all 71)"
+        required: false
+        default: ""
+
+jobs:
+  bench:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    defaults:
+      run:
+        shell: bash -el {0}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-name: bench
+          create-args: >-
+            python=3.12 grass=8.5 gdal numpy pyproj pytest
+          condarc: |
+            channels: [conda-forge]
+          cache-downloads: true
+      - name: Install package
+        run: pip install --no-deps -e .
+      - name: Versions
+        run: |
+          grass --version | head -1 | tee versions.txt
+          python -c "from osgeo import gdal; print('GDAL', gdal.__version__)" | tee -a versions.txt
+      - name: Tests
+        run: python -m pytest -q
+      - name: Smoke-test GRASS on one site
+        run: python -m bench.run --sites 1 --radii 5000 --engines grass
+      - name: Run benchmark (R3 reference + GRASS + GDAL)
+        run: |
+          ARGS=""
+          if [ -n "${{ github.event.inputs.sites }}" ]; then ARGS="--sites ${{ github.event.inputs.sites }}"; fi
+          python -m bench.run $ARGS --engines grass gdal
+      - name: Collect results
+        if: always()
+        run: |
+          mkdir -p artifact/codes
+          cp versions.txt artifact/ || true
+          cp outputs/bench/results.jsonl artifact/ || true
+          cp data/bench/codes/*_grass.npz artifact/codes/ 2>/dev/null || true
+          ls -la artifact | head
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: grass-bench-results
+          path: artifact/
+          retention-days: 30

@@ -1,0 +1,287 @@
+{
+ "R32077-1 high Himalaya (Lahaul)": [
+  77.6035,
+  32.2624,
+  "high Himalaya"
+ ],
+ "R32077-2 high Himalaya (Lahaul)": [
+  77.4042,
+  32.4758,
+  "high Himalaya"
+ ],
+ "R32077-3 high Himalaya (Lahaul)": [
+  77.715,
+  32.3926,
+  "high Himalaya"
+ ],
+ "R32078-1 high Himalaya (Spiti)": [
+  78.2612,
+  32.7998,
+  "high Himalaya"
+ ],
+ "R32078-2 high Himalaya (Spiti)": [
+  78.3507,
+  32.6131,
+  "high Himalaya"
+ ],
+ "R32078-3 high Himalaya (Spiti)": [
+  78.8107,
+  32.8456,
+  "high Himalaya"
+ ],
+ "R31078-1 high Himalaya (Kinnaur)": [
+  78.687,
+  31.6005,
+  "high Himalaya"
+ ],
+ "R31078-2 high Himalaya (Kinnaur)": [
+  78.7412,
+  31.5112,
+  "high Himalaya"
+ ],
+ "R31078-3 high Himalaya (Kinnaur)": [
+  78.3807,
+  31.4618,
+  "high Himalaya"
+ ],
+ "R30079-1 high Himalaya (Garhwal)": [
+  79.2975,
+  30.3356,
+  "high Himalaya"
+ ],
+ "R30079-2 high Himalaya (Garhwal)": [
+  79.4489,
+  30.5191,
+  "high Himalaya"
+ ],
+ "R30079-3 high Himalaya (Garhwal)": [
+  79.1395,
+  30.6208,
+  "high Himalaya"
+ ],
+ "R33076-1 high Himalaya (Zanskar)": [
+  76.4002,
+  33.4613,
+  "high Himalaya"
+ ],
+ "R33076-2 high Himalaya (Zanskar)": [
+  76.5702,
+  33.2746,
+  "high Himalaya"
+ ],
+ "R33076-3 high Himalaya (Zanskar)": [
+  76.352,
+  33.4521,
+  "high Himalaya"
+ ],
+ "R31077-1 high hills (Kullu-Shimla)": [
+  77.7772,
+  31.285,
+  "high hills"
+ ],
+ "R31077-2 high hills (Kullu-Shimla)": [
+  77.579,
+  31.7201,
+  "high hills"
+ ],
+ "R31077-3 high hills (Kullu-Shimla)": [
+  77.8306,
+  31.3854,
+  "high hills"
+ ],
+ "R30078-1 high hills (lower Garhwal)": [
+  78.4502,
+  30.5469,
+  "high hills"
+ ],
+ "R30078-2 high hills (lower Garhwal)": [
+  78.3663,
+  30.7963,
+  "high hills"
+ ],
+ "R30078-3 high hills (lower Garhwal)": [
+  78.3622,
+  30.645,
+  "high hills"
+ ],
+ "R34077-1 Ladakh plateau": [
+  77.6486,
+  34.3235,
+  "Ladakh plateau"
+ ],
+ "R34077-2 Ladakh plateau": [
+  77.4949,
+  34.2986,
+  "Ladakh plateau"
+ ],
+ "R34077-3 Ladakh plateau": [
+  77.2698,
+  34.5592,
+  "Ladakh plateau"
+ ],
+ "R32079-1 Ladakh plateau (Changthang)": [
+  79.5359,
+  32.6711,
+  "Ladakh plateau"
+ ],
+ "R32079-2 Ladakh plateau (Changthang)": [
+  79.4054,
+  32.5899,
+  "Ladakh plateau"
+ ],
+ "R32079-3 Ladakh plateau (Changthang)": [
+  79.4962,
+  32.4409,
+  "Ladakh plateau"
+ ],
+ "R32076-1 foothills (Kangra)": [
+  76.63,
+  32.4778,
+  "foothills"
+ ],
+ "R32076-2 foothills (Kangra)": [
+  76.438,
+  32.5571,
+  "foothills"
+ ],
+ "R32076-3 foothills (Kangra)": [
+  76.7176,
+  32.1313,
+  "foothills"
+ ],
+ "R31076-1 foothills (Mandi)": [
+  76.3716,
+  31.5143,
+  "foothills"
+ ],
+ "R31076-2 foothills (Mandi)": [
+  76.1991,
+  31.5,
+  "foothills"
+ ],
+ "R31076-3 foothills (Mandi)": [
+  76.8624,
+  31.7995,
+  "foothills"
+ ],
+ "R30077-1 foothills (Sirmaur-Dehradun)": [
+  77.3951,
+  30.1735,
+  "foothills"
+ ],
+ "R30077-2 foothills (Sirmaur-Dehradun)": [
+  77.3625,
+  30.6702,
+  "foothills"
+ ],
+ "R30077-3 foothills (Sirmaur-Dehradun)": [
+  77.4383,
+  30.5496,
+  "foothills"
+ ],
+ "R29076-1 plains (Haryana)": [
+  76.8393,
+  29.7029,
+  "plains"
+ ],
+ "R29076-2 plains (Haryana)": [
+  76.5895,
+  29.7874,
+  "plains"
+ ],
+ "R29076-3 plains (Haryana)": [
+  76.8308,
+  29.2486,
+  "plains"
+ ],
+ "R30075-1 plains (Punjab)": [
+  75.3503,
+  30.1475,
+  "plains"
+ ],
+ "R30075-2 plains (Punjab)": [
+  75.6272,
+  30.3384,
+  "plains"
+ ],
+ "R30075-3 plains (Punjab)": [
+  75.1987,
+  30.4906,
+  "plains"
+ ],
+ "R28073-1 plains (Thar)": [
+  73.5772,
+  28.1395,
+  "plains"
+ ],
+ "R28073-2 plains (Thar)": [
+  73.575,
+  28.4937,
+  "plains"
+ ],
+ "R28073-3 plains (Thar)": [
+  73.7889,
+  28.5474,
+  "plains"
+ ],
+ "R26080-1 plains (Gangetic, Kanpur)": [
+  80.2693,
+  26.8096,
+  "plains"
+ ],
+ "R26080-2 plains (Gangetic, Kanpur)": [
+  80.7129,
+  26.8272,
+  "plains"
+ ],
+ "R26080-3 plains (Gangetic, Kanpur)": [
+  80.6181,
+  26.6029,
+  "plains"
+ ],
+ "R17075-1 plateau (Deccan)": [
+  75.8088,
+  17.5341,
+  "plateau"
+ ],
+ "R17075-2 plateau (Deccan)": [
+  75.5735,
+  17.3026,
+  "plateau"
+ ],
+ "R17075-3 plateau (Deccan)": [
+  75.2297,
+  17.7325,
+  "plateau"
+ ],
+ "R10076-1 mountains (Western Ghats)": [
+  76.4281,
+  10.5855,
+  "mountains"
+ ],
+ "R10076-2 mountains (Western Ghats)": [
+  76.1801,
+  10.6969,
+  "mountains"
+ ],
+ "R10076-3 mountains (Western Ghats)": [
+  76.7642,
+  10.579,
+  "mountains"
+ ],
+ "R27088-1 high Himalaya (Sikkim)": [
+  88.3678,
+  27.595,
+  "high Himalaya"
+ ],
+ "R27088-2 high Himalaya (Sikkim)": [
+  88.3802,
+  27.6153,
+  "high Himalaya"
+ ],
+ "R27088-3 high Himalaya (Sikkim)": [
+  88.225,
+  27.6248,
+  "high Himalaya"
+ ]
+}

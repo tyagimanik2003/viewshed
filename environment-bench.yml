@@ -1,0 +1,17 @@
+# Benchmark environment: the package plus GRASS, WhiteboxTools and xarray-spatial.
+# GRASS pins its own GDAL; record the versions you get (see docs/benchmark.md).
+# On Windows, conda-forge GRASS may fail to start (docs/troubleshooting.md).
+name: viewshed-bench
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - grass=8.5
+  - whitebox_tools=2.4
+  - xarray-spatial=0.10
+  - numba
+  - gdal
+  - numpy
+  - pyproj
+  - matplotlib
+  - pytest

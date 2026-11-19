@@ -1,0 +1,15 @@
+# environments
+.env/
+.env-bench/
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+
+# data: never commit DEM tiles or outputs (fetch at runtime; licences differ per DEM)
+data/
+*.tif
+*.tif.aux.xml
+*.vrt
+*.csv
+outputs/

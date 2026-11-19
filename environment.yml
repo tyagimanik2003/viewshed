@@ -1,0 +1,15 @@
+# Core environment, pinned to the versions the test suite is verified with.
+# GDAL >= 3.12 is required for `gdal raster viewshed` sector/min-distance options;
+# use gdal.Run("raster", "viewshed", ...), not gdal.ViewshedGenerate (see docs/gdal_notes.md).
+name: viewshed
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12.16
+  - gdal=3.13.3
+  - libgdal-core=3.13.3
+  - proj=9.9.0
+  - numpy=2.5.5
+  - pyproj=3.8.0
+  - pytest=9.2.0
+  - requests=2.34.2

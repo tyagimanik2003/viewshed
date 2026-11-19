@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "viewshed"
+version = "0.1.0.dev0"
+description = "Correct, reproducible viewsheds from latitude/longitude, with an exact reference and a benchmark of viewshed engines."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Manik Tyagi" }]
+keywords = ["viewshed", "visibility", "line of sight", "GIS", "DEM", "terrain", "GDAL"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: GIS",
+]
+# GDAL itself is installed from conda-forge (see environment.yml): binary GDAL wheels are not
+# available on PyPI for every platform.
+dependencies = ["numpy>=1.26", "pyproj>=3.6"]
+
+[project.optional-dependencies]
+plot = ["matplotlib>=3.8"]
+test = ["pytest>=8"]
+
+[project.scripts]
+viewshed = "viewshed.__main__:main"
+
+[project.urls]
+Repository = "https://github.com/tyagimanik2003/viewshed"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/viewshed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+xfail_strict = true
