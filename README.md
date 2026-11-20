@@ -88,6 +88,34 @@ plot(r, "map.png")
 `ViewshedResult` contains the codes, the DEM grid, the geotransform and CRS (azimuthal
 equidistant, observer at x = y = 0), and helpers such as `visible_km2` and `summary()`.
 
+### Zone of theoretical visibility (ZTV)
+
+For several observers at once, such as the turbines of a wind farm, `ztv()` counts how many are
+visible from every cell. Sightlines are symmetric, so use the turbines' tip heights as observer
+heights and a person's eye height as the target height:
+
+```python
+from viewshed import ztv
+
+turbines = [(77.002, 32.340, 150), (77.025, 32.330, 150), (77.047, 32.320, 150)]  # lon, lat, tip height
+z = ztv(turbines, radius=10_000, target_height=2.0, out="ztv.tif")
+print(z.summary())
+z.area_by_count()        # {1: km2 seeing exactly one turbine, 2: ..., 3: ...}
+```
+
+See [docs/ztv.md](docs/ztv.md) for the method and its assumptions.
+
+### Web maps
+
+`viewshed.export` turns results into overlays for web maps (MapLibre, Leaflet, OpenLayers): a PNG
+reprojected to Web Mercator, plus its corner coordinates.
+
+```python
+from viewshed.export import viewshed_overlay, ztv_overlay
+
+png, corners = ztv_overlay(z)   # corners: [lon, lat] top-left, top-right, bottom-right, bottom-left
+```
+
 ### Exact reference
 
 ```python

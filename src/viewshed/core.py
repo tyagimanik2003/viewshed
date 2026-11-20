@@ -85,6 +85,8 @@ def viewshed(lon: float, lat: float, radius: float = 5000.0, *, observer_height:
     ds = observer_grid(lon, lat, radius, dem=dem, resolution_m=resolution, out_path=dem_path)
     dem_arr = ds.GetRasterBand(1).ReadAsArray()
     ds = None
+    if dem_arr[dem_arr.shape[0] // 2, dem_arr.shape[1] // 2] <= -32767:  # observer on the centre cell
+        raise ValueError(f"no elevation data at the observer ({lon:.5f}, {lat:.5f}): is it inside the DEM?")
 
     params = dict(target_height=target_height, start_angle=start_angle, end_angle=end_angle,
                   min_distance=min_distance, dem=str(dem), resolution=resolution,

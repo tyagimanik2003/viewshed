@@ -84,6 +84,11 @@ def test_missing_elevation_is_nodata_not_sea_level(tmp_path):
     assert not (res.dem[res.codes != NODATA] == 0).any()
 
 
+def test_observer_outside_dem_is_rejected(flat_geographic):
+    with pytest.raises(ValueError, match="no elevation data at the observer"):
+        viewshed(OBS_LON + 1, OBS_LAT, 1000, dem=flat_geographic)
+
+
 @pytest.mark.parametrize("kwargs", [dict(start_angle=10), dict(end_angle=10), dict(min_distance=6000)])
 def test_bad_arguments_are_rejected(kwargs, flat_geographic):
     with pytest.raises(ValueError):

@@ -25,9 +25,14 @@ GLO30_URL = (
 )
 
 
+def aeqd_proj(lon: float, lat: float) -> str:
+    """PROJ string of the azimuthal-equidistant projection centred on (lon, lat)."""
+    return f"+proj=aeqd +lat_0={lat} +lon_0={lon} +datum=WGS84 +units=m +no_defs"
+
+
 def aeqd_srs(lon: float, lat: float) -> osr.SpatialReference:
     srs = osr.SpatialReference()
-    srs.ImportFromProj4(f"+proj=aeqd +lat_0={lat} +lon_0={lon} +datum=WGS84 +units=m +no_defs")
+    srs.ImportFromProj4(aeqd_proj(lon, lat))
     return srs
 
 
@@ -124,14 +129,21 @@ def observer_grid(lon: float, lat: float, radius_m: float, dem="glo30", resoluti
     the observer (0, 0) sits exactly on the centre of the middle cell.
     """
     bbox = geodesic_bbox(lon, lat, radius_m * 1.05)
-    sources = resolve_sources(dem, bbox)
     half = math.ceil((radius_m + 2 * resolution_m) / resolution_m) * resolution_m + resolution_m / 2
+    return aeqd_grid(lon, lat, (-half, -half, half, half), bbox, dem, resolution_m, out_path)
+
+
+def aeqd_grid(lon0: float, lat0: float, bounds: tuple[float, float, float, float], bbox_deg,
+              dem="glo30", resolution_m: float = 30.0, out_path: str | Path | None = None) -> gdal.Dataset:
+    """Mosaic the DEM sources covering bbox_deg (west, south, east, north) and warp them to the
+    AEQD grid centred on (lon0, lat0) with the given (xmin, ymin, xmax, ymax) bounds in metres."""
+    sources = resolve_sources(dem, bbox_deg)
     vrt = gdal.BuildVRT("", sources)
     dst = str(out_path) if out_path else ""
     return gdal.Warp(
         dst, vrt, format="GTiff" if out_path else "MEM",
-        dstSRS=aeqd_srs(lon, lat).ExportToWkt(),
-        outputBounds=(-half, -half, half, half), xRes=resolution_m, yRes=resolution_m,
+        dstSRS=aeqd_srs(lon0, lat0).ExportToWkt(),
+        outputBounds=bounds, xRes=resolution_m, yRes=resolution_m,
         resampleAlg="bilinear", dstNodata=DEM_NODATA, outputType=gdal.GDT_Float32,
         multithread=True,
     )
